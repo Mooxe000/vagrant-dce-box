@@ -1,10 +1,18 @@
 # Vagrant Virtualbox Dce Box
 
-本项目是从 [bento](https://github.com/chef/bento) 中提取测试修改得来
+本项目是从 [bento](https://github.com/chef/bento) 中提取测试修改而来
+
+### 项目缘起
+
+1. 公有云贵多有不便
+1. 本地调试安装更方便
+1. 反复安装环境很浪费时间
+1. 短期来看虚拟化模版的制作对现场实施非常重要
+1. 长期来看虚拟化退场还有比较长的一段时间要走
 
 ### 版本说明
 
-1. vagrant 1.8.5
+1. vagrant 1.8.6
 1. virtualbox 5.0.28
 1. packer 0.11.0
 
@@ -30,10 +38,10 @@ vagrant ssh $NODE_NAME # 登入系统
 
 ### 如有时间后期的一些想法
 
-1. 添加一个命令行工具，弱化 vagrant 和 packer 配置，形成一个更少配置，专门服务容器或者DCE的配置项，类似于 docker + compose.yml
+1. 添加一个命令行工具，弱化 vagrant 和 packer 配置，形成一个更少配置，专门服务容器或者DCE的配置项，类似于 docker + compose.yml 的方式
   - vagrant 和 packer 工作目录移至隐藏目录
   - vagrant 和 packer 是动态后生成的
 1. 宿主环境暂只选择 ubuntu 16.04 amd 64 有可能添加 centos 最新版支持
 1. 根据 docker + DCE 版本做多版本固化
-1. 虚拟化暂只支持 virtualbox，代码化成型后考虑其他虚拟化平台
+1. 虚拟化暂只支持 virtualbox，代码化框架成型后考虑其他虚拟化平台
   - 最终达到可以作为 DCE 虚拟化模版的效果

@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
       # coreos-alpha
       # ubuntu/trusty64
       # ubuntu/xenial64
-      machine.vm.box = "ubuntu-16.04/daocloud-dce-2.1.1"
+      machine.vm.box = "ubuntu-16.04/daocloud-dce-2.2.0"
       machine.vm.hostname = name
 
       # Disable automatic box update checking. If you disable this, then
@@ -94,6 +94,9 @@ Vagrant.configure("2") do |config|
 
         rm -rf /etc/docker/key.json
         systemctl restart docker.service
+
+        ntpdate pool.ntp.org 2>&1 >> /tmp/ntp.log
+        hwclock -w
 
         reboot
 

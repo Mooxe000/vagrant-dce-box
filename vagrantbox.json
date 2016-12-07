@@ -20,7 +20,8 @@
     "no_proxy": "{{env `no_proxy`}}",
     "preseed_path": "preseed.cfg",
     "template": "ubuntu-16.04-amd64",
-    "version": "2.1.TIMESTAMP"
+    "version": "2.1.TIMESTAMP",
+    "dce_version": "2.2.0"
   },
   "builders": [
     {
@@ -87,7 +88,7 @@
   ],
   "post-processors": [
     {
-      "output": "build/{{user `box_basename`}}.{{.Provider}}.box",
+      "output": "build/{{user `box_basename`}}.dce-{{user `dce_version`}}.{{.Provider}}.box",
       "type": "vagrant"
     }
   ],
@@ -112,7 +113,8 @@
         "scripts/ubuntu/networking.sh",
         "scripts/ubuntu/sudoers.sh",
         "scripts/ubuntu/vagrant.sh",
-        "scripts/common/virtualbox.sh"
+        "scripts/common/virtualbox.sh",
+        "scripts/common/timezone.sh"
       ],
       "type": "shell"
     },

@@ -1,35 +1,33 @@
 {
   "variables": {
-    "box_basename": "ubuntu-16.04",
-    "build_timestamp": "{{isotime \"20060102150405\"}}",
+    "box_basename": "ubuntu-16.10",
     "cpus": "1",
     "disk_size": "40960",
     "git_revision": "__unknown_git_revision__",
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "iso_checksum": "29a8b9009509b39d542ecb229787cdf48f05e739a932289de9e9858d7c487c80",
+    "iso_checksum": "72b0d421da77f1e0c549b4efe6fc6c184e9909d6792f0d1e59b56d63e9705659",
     "iso_checksum_type": "sha256",
-    "iso_name": "ubuntu-16.04.1-server-amd64.iso",
+    "iso_name": "ubuntu-16.10-server-amd64.iso",
     "memory": "512",
     "metadata": "floppy/dummy_metadata.json",
     "dockerconf": "floppy/docker_daemon.json",
     "mirror": "http://mirrors.aliyun.com/ubuntu-releases/",
-    "mirror_directory": "16.04",
-    "name": "ubuntu-16.04",
+    "mirror_directory": "16.10",
+    "name": "ubuntu-16.10",
     "no_proxy": "{{env `no_proxy`}}",
     "preseed_path": "preseed.cfg",
-    "template": "ubuntu-16.04-amd64",
+    "template": "ubuntu-16.10-amd64",
     "version": "2.1.TIMESTAMP",
-    "dce_version": "2.2.0"
+    "dce_version": "2.5.1"
   },
   "builders": [
     {
       "boot_command": [
-        "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<esc><wait>",
+        "<esc><wait>",
+        "<enter><wait>",
         "/install/vmlinuz<wait>",
         " auto<wait>",
         " console-setup/ask_detect=false<wait>",
@@ -88,7 +86,7 @@
   ],
   "post-processors": [
     {
-      "output": "build/{{user `box_basename`}}.dce-{{user `dce_version`}}.{{.Provider}}.box",
+      "output": "build/{{user `box_basename`}}_dce-{{user `dce_version`}}.{{.Provider}}.box",
       "type": "vagrant"
     }
   ],

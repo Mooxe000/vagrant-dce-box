@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
       # coreos-alpha
       # ubuntu/trusty64
       # ubuntu/xenial64
-      machine.vm.box = "ubuntu-16.04/daocloud-dce-2.2.0"
+      machine.vm.box = "ubuntu-16.10/daocloud-dce-2.5.1"
       machine.vm.hostname = name
 
       # Disable automatic box update checking. If you disable this, then
